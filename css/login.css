@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.loading {
+  background: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.bg {
+  background: center/cover url('../img/alex_rainer-BjIwWQSS8X8-unsplash.jpg') no-repeat;
+}
+
+.container .row {
+  width: 500px;
+}
+
+.container .logo {
+  width: 350px;
+}
