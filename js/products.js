@@ -75,7 +75,10 @@ const app = createApp({
     },
     openModal(item) {
       this.action = window.event.target.dataset.action;
-
+      this.$refs.productModal.imgData = null;
+      // 待尋 vue solution
+      document.getElementById('imageUrl').value = '';
+      
       switch (this.action) {
         case 'create':
           this.tempProduct = {imagesUrl:[]};
@@ -127,7 +130,7 @@ app.component('productModal', {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/',
       apiPath: 'jayredk-hex',
-      imgData: {}
+      imgData: null
     }
   },
   methods: {
@@ -141,11 +144,12 @@ app.component('productModal', {
       axios.post(`${this.apiUrl}api/${this.apiPath}/admin/upload`, this.imgData)
       .then((res) => {
         if (res.data.success) {
-          console.log(res);
-          this.imgData = {};
+          this.imgData = null;
+          // 待尋 vue solution
+          document.getElementById('imageUrl').value = '';
           this.tempProduct.imagesUrl.push(res.data.imageUrl);
         } else {
-          console.log(res);
+          alert(res.data.message);
         }
       })
       .catch((err) => {

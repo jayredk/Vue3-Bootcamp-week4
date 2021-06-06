@@ -70,7 +70,7 @@
       <pagination :page="pagination" @get-data="getProduct"></pagination>
     </div>
 
-    <product-modal :temp-product="tempProduct" :action="action" @update-product="updateProduct"></product-modal>
+    <product-modal :temp-product="tempProduct" :action="action" @update-product="updateProduct" ref="productModal"></product-modal>
     <del-product-modal :temp-product="tempProduct" @delete-product="deleteProduct"></del-product-modal>
 
 
@@ -84,7 +84,7 @@
 
   <!-- modal -->
   <script type="text/x-template" id="productModal">
-    <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
+    <div id="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content border-0">
@@ -102,8 +102,8 @@
                     <div class="form-group">
                       <label for="imageUrl">上傳圖片</label>
                       <div class="input-group mb-1">
-                        <input @change="getImgData" id="imageUrl" type="file" class="form-control" placeholder="請將要上傳的圖片拖曳至此">
-                        <button @click="uploadImg" class="btn btn-sm btn-outline-success flex-shrink-0" type="button">確定上傳</button>
+                        <input @change="getImgData" id="imageUrl" type="file" accept=".jpg, .png" class="form-control" placeholder="請將要上傳的圖片拖曳至此">
+                        <button @click="uploadImg" :disabled="!imgData" class="btn btn-sm btn-outline-success flex-shrink-0" type="button">確定上傳</button>
                       </div>
                       
                     </div>
