@@ -147,7 +147,9 @@ app.component('productModal', {
           this.imgData = null;
           // 待尋 vue solution
           document.getElementById('imageUrl').value = '';
-          this.tempProduct.imagesUrl.push(res.data.imageUrl);
+          this.tempProduct.imageUrl = res.data.imageUrl;
+          console.log(this.tempProduct.imageUrl);
+          // this.tempProduct.imagesUrl.push(res.data.imageUrl);
         } else {
           alert(res.data.message);
         }
