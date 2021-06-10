@@ -145,11 +145,13 @@ app.component('productModal', {
       .then((res) => {
         if (res.data.success) {
           this.imgData = null;
-          // 待尋 vue solution
-          document.getElementById('imageUrl').value = '';
-          this.tempProduct.imageUrl = res.data.imageUrl;
-          console.log(this.tempProduct.imageUrl);
-          // this.tempProduct.imagesUrl.push(res.data.imageUrl);
+          this.$refs.imageUrl.value = '';
+          
+          if (this.action === 'create') {
+            this.tempProduct.imageUrl = res.data.imageUrl;
+          } else if (this.action === 'edit') {
+            this.tempProduct.imagesUrl.push(res.data.imageUrl);
+          }
         } else {
           alert(res.data.message);
         }
